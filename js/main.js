@@ -93,3 +93,36 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = 'none';
     }
 });
+
+// ==========================================
+// FUNCIONALIDAD DEL CÍRCULO "EXPLORA"
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const circularFrame = document.querySelector('.circular-frame');
+    
+    if (circularFrame) {
+        // Hacer el círculo clickeable
+        circularFrame.style.cursor = 'pointer';
+        
+        // Al hacer clic, scroll suave a la sección "about"
+        circularFrame.addEventListener('click', () => {
+            const aboutSection = document.querySelector('#about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+        });
+        
+        // Efecto hover
+        circularFrame.addEventListener('mouseenter', () => {
+            circularFrame.style.transform = 'scale(1.05)';
+        });
+        
+        circularFrame.addEventListener('mouseleave', () => {
+            circularFrame.style.transform = 'scale(1)';
+        });
+    }
+});

@@ -5,7 +5,6 @@
 :root {
     --color-primary: #6B7C3D;
     --color-accent: #8B9B5D;
-    --color-secondary: #F8D3DB;
     --bg-cream: #F5F3EE;
     --bg-light: #FAFAF8;
     --text-dark: #2C2C2C;
@@ -147,6 +146,15 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.circular-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(107, 124, 61, 0.3);
+    animation: none;
 }
 
 .circular-frame::before {
@@ -163,6 +171,18 @@ body {
     font-size: 0.85rem;
     color: var(--text-muted);
     letter-spacing: 2px;
+}
+
+/* Animación de pulsación para el círculo */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(107, 124, 61, 0.4);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 10px rgba(107, 124, 61, 0);
+    }
 }
 
 /* ==========================================
@@ -220,7 +240,7 @@ section {
 .about-image-frame {
     width: 100%;
     aspect-ratio: 3/4;
-    border: 1px solid var(--color-accent);
+    border: 1px solid var(--color-primary);
     border-radius: var(--border-radius);
     overflow: hidden;
     background: var(--bg-light);
@@ -239,8 +259,10 @@ section {
     z-index: -1;
 }
 
-.about-image-flower{
+.about-image-flower {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* ==========================================
@@ -311,9 +333,6 @@ section {
     border-radius: var(--border-radius);
     overflow: hidden;
     transition: transform 0.3s;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
 .project-card:hover {
@@ -322,21 +341,16 @@ section {
 
 .project-image-wrapper {
     width: 100%;
-    height: 100%;
+    height: 280px;
     overflow: hidden;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     background: linear-gradient(135deg, #E8EDE0 0%, #C9D4B5 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: auto;
 }
 
 .project-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
     transition: transform 0.5s ease;
 }
 
@@ -346,9 +360,6 @@ section {
 
 .project-info {
     padding: 2rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .project-title {
@@ -385,8 +396,8 @@ section {
 }
 
 .github-link {
-    background: var(--color-secondary);
-    color: black;
+    background: var(--color-primary);
+    color: white;
 }
 
 .github-link:hover {
@@ -412,6 +423,46 @@ section {
     line-height: 2;
 }
 
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(107, 124, 61, 0.2);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-cream);
+    color: var(--text-dark);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(107, 124, 61, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
 .contact-button {
     display: inline-block;
     padding: 1.2rem 3rem;
@@ -423,6 +474,9 @@ section {
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .contact-button:hover {
@@ -431,86 +485,5 @@ section {
     box-shadow: 0 10px 25px rgba(107, 124, 61, 0.2);
 }
 
-/* ==========================================
-   FOOTER
-   ========================================== */
-
-footer {
-    background: var(--color-primary);
-    color: white;
-    padding: 3rem 2rem;
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.footer-links {
+.social-links {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    transition: opacity 0.3s;
-}
-
-.footer-links a:hover {
-    opacity: 0.7;
-}
-
-.copyright {
-    font-size: 0.8rem;
-    opacity: 0.8;
-    letter-spacing: 1px;
-}
-
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
-
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 3rem;
-        letter-spacing: 4px;
-    }
-
-    .section-title {
-        font-size: 2.5rem;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .nav-links {
-        gap: 1.5rem;
-    }
-
-    .nav-links a {
-        font-size: 0.7rem;
-    }
-
-    section {
-        padding: 4rem 1.5rem;
-    }
-
-    .home-section {
-        padding: 6rem 1.5rem 4rem;
-    }
-}
