@@ -9,12 +9,26 @@ import image2 from "../img/todah/post.png";
 import image3 from "../img/todah/post3.png";
 import image4 from "../img/todah/post8.png";
 import image5 from "../img/todah/todah.png";
+import zenner from "../img/zenner.png";
+import freject from "../img/freject.png";
 
 const Projects = () => {
   const [index, setIndex] = useState(0);
   const [innerIndex, setInnerIndex] = useState(0);
 
   const projects = [
+    {
+      title: "Web publicitaria Método Zenner",
+      category: "Cursos online IA · Negocio digital",
+      images: [zenner],
+      description: "Desarrollo de una landing para mejorar la presencia online y ventas de su curso.",
+      problem: "No tenía una web propia.",
+      solution: "Web promocionando tanto el curso como su marca propia.",
+      result: "Base digital preparada para aumentar visibilidad y captar clientes.",
+      tech: "Next.js · Tailwind CSS · TypeScript",
+      type: "web",
+      "url": "https://www.metodozenner.com/"
+    },
     {
       title: "Web para restaurante en Nerja",
       category: "Restaurante · Negocio local",
@@ -27,24 +41,24 @@ const Projects = () => {
       type: "web",
       "url": "https://isabelrestaurante.netlify.app/"
     },
-    {
-      title: "Web para alojamiento rural",
-      category: "Alojamiento rural · Negocio local",
-      images: [
-        image5,
-        image2,
-        image3,
-        image,
-        image4
-      ],
-      description: "Desarrollo web + creación de contenido visual para mejorar la visibilidad online y aumentar reservas.",
-      problem: "Baja visibilidad y falta de contenido atractivo.",
-      solution: "Web optimizada + contenido visual para redes y web.",
-      result: "Mejor presencia digital y base para aumentar reservas.",
-      tech: "HTML · Tailwind · JS · Contenido visual",
-      type: "web",
-      "url": "https://casatodah.netlify.app/"
-    },
+    // {
+    //   title: "Web para alojamiento rural",
+    //   category: "Alojamiento rural · Negocio local",
+    //   images: [
+    //     image5,
+    //     image2,
+    //     image3,
+    //     image,
+    //     image4
+    //   ],
+    //   description: "Desarrollo web + creación de contenido visual para mejorar la visibilidad online y aumentar reservas.",
+    //   problem: "Baja visibilidad y falta de contenido atractivo.",
+    //   solution: "Web optimizada + contenido visual para redes y web.",
+    //   result: "Mejor presencia digital y base para aumentar reservas.",
+    //   tech: "HTML · Tailwind · JS · Contenido visual",
+    //   type: "web",
+    //   "url": "https://casatodah.netlify.app/"
+    // },
     {
       title: "QIVET · Sistema veterinario",
       category: "Clínica veterinaria",
@@ -53,7 +67,7 @@ const Projects = () => {
       problem: "Gestión manual ineficiente.",
       solution: "Sistema de citas y control médico.",
       result: "Mejora organizativa.",
-      tech: "Node · MongoDB",
+      tech: "React.js · Tailwind CSS · Node.js · PostgreSQL",
       type: "code",
       "url": "https://github.com/niyranzo/qivetProyectoFinal"
     },
@@ -67,6 +81,18 @@ const Projects = () => {
       result: "Procesos optimizados.",
       tech: "Electron · SQLite",
       type: "code"
+    },
+    {
+      title: "Freject",
+      category: "Proyecto personal · Gestión de proyectos",
+      images: [freject],
+      description: "Web para gestionar proyectos freelancers o autonomos.",
+      problem: "Ninguna web donde gestionar proyectos.",
+      solution: "Creación de una plataforma para gestionar proyectos, tareas y clientes.",
+      result: "Plataforma para gestionar proyectos.",
+      tech: "Next.js · Tailwind CSS · TypeScript · Node.js · PostgreSQL",
+      type: "code",
+      "url": "https://github.com/niyranzo/freject-project"
     },
   ];
 
